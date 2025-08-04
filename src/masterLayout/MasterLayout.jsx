@@ -130,7 +130,7 @@ const MasterLayout = ({ children }) => {
         </div>
         <div className='sidebar-menu-area'>
           <ul className='sidebar-menu' id='sidebar-menu'>
-            <li className='dropdown'>
+            {/* <li className='dropdown'>
               <Link href='#'>
                 <Icon
                   icon='solar:home-smile-angle-outline'
@@ -239,9 +239,160 @@ const MasterLayout = ({ children }) => {
                   </Link>
                 </li>
               </ul>
-            </li>
+            </li> */}
 
             <li className='sidebar-menu-group-title'>Application</li>
+            <li>
+              <Link
+                href='/'
+                className={pathname === "/" ? "active-page" : ""}
+              >
+                <Icon icon='solar:home-smile-angle-outline' className='menu-icon' />
+                <span>Dashboard</span>
+              </Link>
+            </li>
+
+            <li className='dropdown'>
+              <Link href='#'>
+                <Icon icon='heroicons:document' className='menu-icon' />
+                <span>Forms</span>
+              </Link>
+              <ul className='sidebar-submenu'>
+                <li>
+                  <Link
+                    href='/form'
+                    className={pathname === "/form" ? "active-page" : ""}
+                  >
+                    <i className='ri-circle-fill circle-icon text-primary-600 w-auto' />{" "}
+                    Input Forms
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href='/form-layout'
+                    className={pathname === "/form-layout" ? "active-page" : ""}
+                  >
+                    <i className='ri-circle-fill circle-icon text-warning-main w-auto' />{" "}
+                    Input Layout
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href='/form-validation'
+                    className={
+                      pathname === "/form-validation" ? "active-page" : ""
+                    }
+                  >
+                    <i className='ri-circle-fill circle-icon text-success-main w-auto' />{" "}
+                    Form Validation
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href='/wizard'
+                    className={pathname === "/wizard" ? "active-page" : ""}
+                  >
+                    <i className='ri-circle-fill circle-icon text-danger-main w-auto' />{" "}
+                    Form Wizard
+                  </Link>
+                </li>
+              </ul>
+            </li>
+
+            <li className='dropdown'>
+              <Link href='#'>
+                <Icon icon='heroicons:document' className='menu-icon' />
+                <span>Forms</span>
+              </Link>
+              <ul className='sidebar-submenu'>
+                <li>
+                  <Link
+                    href='/form'
+                    className={pathname === "/form" ? "active-page" : ""}
+                  >
+                    <i className='ri-circle-fill circle-icon text-primary-600 w-auto' />{" "}
+                    Input Forms
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href='/form-layout'
+                    className={pathname === "/form-layout" ? "active-page" : ""}
+                  >
+                    <i className='ri-circle-fill circle-icon text-warning-main w-auto' />{" "}
+                    Input Layout
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href='/form-validation'
+                    className={
+                      pathname === "/form-validation" ? "active-page" : ""
+                    }
+                  >
+                    <i className='ri-circle-fill circle-icon text-success-main w-auto' />{" "}
+                    Form Validation
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href='/wizard'
+                    className={pathname === "/wizard" ? "active-page" : ""}
+                  >
+                    <i className='ri-circle-fill circle-icon text-danger-main w-auto' />{" "}
+                    Form Wizard
+                  </Link>
+                </li>
+              </ul>
+            </li>
+
+            <li className='dropdown'>
+              <Link href='#'>
+                <Icon icon='heroicons:document' className='menu-icon' />
+                <span>Forms</span>
+              </Link>
+              <ul className='sidebar-submenu'>
+                <li>
+                  <Link
+                    href='/form'
+                    className={pathname === "/form" ? "active-page" : ""}
+                  >
+                    <i className='ri-circle-fill circle-icon text-primary-600 w-auto' />{" "}
+                    Input Forms
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href='/form-layout'
+                    className={pathname === "/form-layout" ? "active-page" : ""}
+                  >
+                    <i className='ri-circle-fill circle-icon text-warning-main w-auto' />{" "}
+                    Input Layout
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href='/form-validation'
+                    className={
+                      pathname === "/form-validation" ? "active-page" : ""
+                    }
+                  >
+                    <i className='ri-circle-fill circle-icon text-success-main w-auto' />{" "}
+                    Form Validation
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href='/wizard'
+                    className={pathname === "/wizard" ? "active-page" : ""}
+                  >
+                    <i className='ri-circle-fill circle-icon text-danger-main w-auto' />{" "}
+                    Form Wizard
+                  </Link>
+                </li>
+              </ul>
+            </li>
+
             <li>
               <Link
                 href='/email'
