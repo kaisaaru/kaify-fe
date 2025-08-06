@@ -1,7 +1,7 @@
-import BasicUpload from "./child/BasicUpload";
-import ImageUpload from "./child/ImageUpload";
-import UploadWithImagePreview from "./child/UploadWithImagePreview";
-import UploadWithImagePreviewList from "./child/UploadWithImagePreviewList";
+import BasicUpload from "./molecule/form/BasicUpload";
+import ImageUpload from "./molecule/form/ImageUpload";
+import UploadWithImagePreview from "./molecule/form/UploadWithImagePreview";
+import UploadWithImagePreviewList from "./molecule/form/UploadWithImagePreviewList";
 
 const ImageUploadLayer = () => {
   return (

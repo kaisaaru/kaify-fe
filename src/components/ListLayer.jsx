@@ -1,10 +1,10 @@
 import React from 'react'
-import DefaultList from './child/DefaultList'
-import ActiveList from './child/ActiveList'
-import ActiveListTwo from './child/ActiveListTwo'
-import ListIconsLabel from './child/ListIconsLabel'
-import ColoredLists from './child/ColoredLists'
-import ListIconsLabelTwo from './child/ListIconsLabelTwo'
+import DefaultList from './molecule/list/DefaultList'
+import ActiveList from './molecule/list/ActiveList'
+import ActiveListTwo from './molecule/list/ActiveListTwo'
+import ListIconsLabel from './molecule/list/ListIconsLabel'
+import ColoredLists from './molecule/list/ColoredLists'
+import ListIconsLabelTwo from './molecule/list/ListIconsLabelTwo'
 
 const ListLayer = () => {
     return (

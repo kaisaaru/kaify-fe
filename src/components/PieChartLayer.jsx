@@ -1,7 +1,7 @@
-import BasicPieChart from './child/BasicPieChart'
-import DonutChart from './child/DonutChart'
-import RadarChart from './child/RadarChart'
-import MultipleSeries from './child/MultipleSeries'
+import BasicPieChart from './molecule/chart/BasicPieChart'
+import DonutChart from './molecule/chart/DonutChart'
+import RadarChart from './molecule/chart/RadarChart'
+import MultipleSeries from './molecule/chart/MultipleSeries'
 
 const PieChartLayer = () => {
     return (

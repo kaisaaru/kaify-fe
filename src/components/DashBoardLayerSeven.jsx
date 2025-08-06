@@ -1,9 +1,9 @@
-import BannerInnerOne from "./child/BannerInnerOne";
-import TrendingBidsOne from "./child/TrendingBidsOne";
-import TrendingNFTsOne from "./child/TrendingNFTsOne";
-import RecentBidOne from "./child/RecentBidOne";
-import ETHPriceOne from "./child/ETHPriceOne";
-import StatisticsOne from "./child/StatisticsOne";
+import BannerInnerOne from "./molecule/banner/BannerInnerOne";
+import TrendingBidsOne from "./molecule/statistic/TrendingBidsOne";
+import TrendingNFTsOne from "./molecule/statistic/TrendingNFTsOne";
+import RecentBidOne from "./molecule/statistic/RecentBidOne";
+import ETHPriceOne from "./molecule/statistic/ETHPriceOne";
+import StatisticsOne from "./molecule/statistic/StatisticsOne";
 import FeaturedCreatorsOne from "./child/FeaturedCreatorsOne";
 import FeaturedCreatorsTwo from "./child/FeaturedCreatorsTwo";
 

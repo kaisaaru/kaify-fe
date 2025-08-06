@@ -1,12 +1,12 @@
-import RevenueReportOne from "./child/RevenueReportOne";
-import CustomersStatisticsOne from "./child/CustomersStatisticsOne";
-import RecentOrdersOne from "./child/RecentOrdersOne";
-import TransactionsOne from "./child/TransactionsOne";
-import RecentOrdersTwo from "./child/RecentOrdersTwo";
+import RevenueReportOne from "./molecule/statistic/RevenueReportOne";
+import CustomersStatisticsOne from "./molecule/statistic/CustomersStatisticsOne";
+import RecentOrdersOne from "./molecule/statistic/RecentOrdersOne";
+import TransactionsOne from "./molecule/statistic/TransactionsOne";
+import RecentOrdersTwo from "./molecule/statistic/RecentOrdersTwo";
 import DistributionMapsOne from "./child/DistributionMapsOne";
-import TopCustomersOne from "./child/TopCustomersOne";
-import TopSellingProductOne from "./child/TopSellingProductOne";
-import StockReportOne from "./child/StockReportOne";
+import TopCustomersOne from "./molecule/statistic/TopCustomersOne";
+import TopSellingProductOne from "./molecule/statistic/TopSellingProductOne";
+import StockReportOne from "./molecule/statistic/StockReportOne";
 
 const DashBoardLayerThree = () => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import TaskCard from './TaskCard';
+import TaskCard from '../molecule/card/TaskCard';
 import { Droppable } from '@hello-pangea/dnd';
 import { Icon } from '@iconify/react/dist/iconify.js';
 

@@ -1,9 +1,9 @@
-import DefaultLineChart from "./child/DefaultLineChart";
-import ZoomAbleLineChart from "./child/ZoomAbleLineChart";
-import LineDataLabel from "./child/LineDataLabel";
-import DoubleLineChart from "./child/DoubleLineChart";
-import StepLineChart from "./child/StepLineChart";
-import GradientLineChart from "./child/GradientLineChart";
+import DefaultLineChart from "./molecule/chart/DefaultLineChart";
+import ZoomAbleLineChart from "./molecule/chart/ZoomAbleLineChart";
+import LineDataLabel from "./molecule/chart/LineDataLabel";
+import DoubleLineChart from "./molecule/chart/DoubleLineChart";
+import StepLineChart from "./molecule/chart/StepLineChart";
+import GradientLineChart from "./molecule/chart/GradientLineChart";
 
 const LineChartLayer = () => {
   return (

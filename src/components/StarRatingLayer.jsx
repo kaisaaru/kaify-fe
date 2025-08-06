@@ -1,8 +1,8 @@
 import React from 'react'
-import DefaultStarRatings from './child/DefaultStarRatings'
-import HalfStar from './child/HalfStar'
-import MultiColorStar from './child/MultiColorStar'
-import RatingStar from './child/RatingStar'
+import DefaultStarRatings from '@/components/atom/rating/DefaultStarRatings'
+import HalfStar from '@/components/atom/rating/HalfStar'
+import MultiColorStar from '@/components/atom/rating/MultiColorStar'
+import RatingStar from '@/components/atom/rating/RatingStar'
 
 const StarRatingLayer = () => {
     return (

@@ -1,10 +1,10 @@
-import DefaultTable from "./child/DefaultTable";
-import BorderedTables from "./child/BorderedTables";
-import StripedRows from "./child/StripedRows";
-import StripedRowsTwo from "./child/StripedRowsTwo";
-import TablesBorderColors from "./child/TablesBorderColors";
-import TablesBorderColorsTwo from "./child/TablesBorderColorsTwo";
-import TablesBorderColorsThree from "./child/TablesBorderColorsThree";
+import DefaultTable from "./molecule/table/DefaultTable";
+import BorderedTables from "./molecule/table/BorderedTables";
+import StripedRows from "./molecule/table/StripedRows";
+import StripedRowsTwo from "./molecule/table/StripedRowsTwo";
+import TablesBorderColors from "./molecule/table/TablesBorderColors";
+import TablesBorderColorsTwo from "./molecule/table/TablesBorderColorsTwo";
+import TablesBorderColorsThree from "./molecule/table/TablesBorderColorsThree";
 
 const TableBasicLayer = () => {
   return (

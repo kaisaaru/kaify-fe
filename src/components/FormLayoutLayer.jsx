@@ -1,7 +1,7 @@
-import VerticalInputForm from "./child/VerticalInputForm";
-import InputFormWithIcons from "./child/InputFormWithIcons";
-import HorizontalInputForm from "./child/HorizontalInputForm";
-import HorizontalInputFormWithIcons from "./child/HorizontalInputFormWithIcons";
+import VerticalInputForm from "./molecule/form/VerticalInputForm";
+import InputFormWithIcons from "./molecule/form/InputFormWithIcons";
+import HorizontalInputForm from "./molecule/form/HorizontalInputForm";
+import HorizontalInputFormWithIcons from "./molecule/form/HorizontalInputFormWithIcons";
 
 const FormLayoutLayer = () => {
   return (

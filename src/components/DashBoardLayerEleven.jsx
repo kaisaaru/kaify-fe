@@ -1,12 +1,12 @@
-import BalanceStatistic from "./child/BalanceStatistic";
-import EarningCategories from "./child/EarningCategories";
-import ExpenseStatistics from "./child/ExpenseStatistics";
-import Investment from "./child/Investment";
-import MonthlyExpenseBreakdown from "./child/MonthlyExpenseBreakdown";
-import PaymentHistory from "./child/PaymentHistory";
-import PaymentHistoryOne from "./child/PaymentHistoryOne";
-import QuickTransfer from "./child/QuickTransfer";
-import UnitCountEight from "./child/UnitCountEight";
+import BalanceStatistic from "./molecule/statistic/BalanceStatistic";
+import EarningCategories from "./molecule/statistic/EarningCategories";
+import ExpenseStatistics from "./molecule/statistic/ExpenseStatistics";
+import Investment from "./molecule/statistic/Investment";
+import MonthlyExpenseBreakdown from "./molecule/statistic/MonthlyExpenseBreakdown";
+import PaymentHistory from "./molecule/statistic/PaymentHistory";
+import PaymentHistoryOne from "./molecule/statistic/PaymentHistoryOne";
+import QuickTransfer from "./molecule/statistic/QuickTransfer";
+import UnitCountEight from "./molecule/statistic/UnitCountEight";
 
 const DashBoardLayerEleven = () => {
   return (

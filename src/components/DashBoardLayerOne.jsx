@@ -1,10 +1,10 @@
 import GeneratedContent from "./child/GeneratedContent";
-import LatestRegisteredOne from "./child/LatestRegisteredOne";
-import SalesStatisticOne from "./child/SalesStatisticOne";
-import TopCountries from "./child/TopCountries";
-import TopPerformerOne from "./child/TopPerformerOne";
-import TotalSubscriberOne from "./child/TotalSubscriberOne";
-import UnitCountOne from "./child/UnitCountOne";
+import LatestRegisteredOne from "./molecule/statistic/LatestRegisteredOne";
+import SalesStatisticOne from "./molecule/statistic/SalesStatisticOne";
+import TopCountries from "./molecule/statistic/TopCountries";
+import TopPerformerOne from "./molecule/statistic/TopPerformerOne";
+import TotalSubscriberOne from "./molecule/statistic/TotalSubscriberOne";
+import UnitCountOne from "./molecule/statistic/UnitCountOne";
 import UsersOverviewOne from "./child/UsersOverviewOne";
 
 const DashBoardLayerOne = () => {

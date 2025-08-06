@@ -1,7 +1,7 @@
 import React from 'react'
-import DefaultInputs from './child/DefaultInputs'
-import InputSizing from './child/InputSizing'
-import TextareaInputField from './child/TextareaInputField'
+import DefaultInputs from './molecule/form/DefaultInputs'
+import InputSizing from './molecule/form/InputSizing'
+import TextareaInputField from './molecule/form/TextareaInputField'
 
 const FormPageLayer = () => {
     return (

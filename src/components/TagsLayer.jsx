@@ -1,8 +1,8 @@
 import React from 'react'
-import DefaultTags from './child/DefaultTags'
-import ColorsTags from './child/ColorsTags'
-import TagsWithImage from './child/TagsWithImage'
-import TagsIndicator from './child/TagsIndicator'
+import DefaultTags from '@/components/atom/badges/DefaultTags'
+import ColorsTags from '@/components/atom/badges/ColorsTags'
+import TagsWithImage from '@/components/atom/badges/TagsWithImage'
+import TagsIndicator from '@/components/atom/badges/TagsIndicator'
 
 const TagsLayer = () => {
     return (

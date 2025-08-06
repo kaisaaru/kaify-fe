@@ -1,8 +1,8 @@
-import DefaultRadio from './child/DefaultRadio'
-import RadioDisable from './child/RadioDisable'
-import RadioWithButton from './child/RadioWithButton'
-import RadioHorizontal from './child/RadioHorizontal'
-import RadioVertical from './child/RadioVertical'
+import DefaultRadio from './molecule/form/DefaultRadio'
+import RadioDisable from './molecule/form/RadioDisable'
+import RadioWithButton from './molecule/form/RadioWithButton'
+import RadioHorizontal from './molecule/form/RadioHorizontal'
+import RadioVertical from './molecule/form/RadioVertical'
 
 const RadioLayer = () => {
     return (

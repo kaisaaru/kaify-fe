@@ -1,8 +1,8 @@
 import React from 'react'
-import NumberingWizard from './child/NumberingWizard'
-import NumberingWizardWithLabel from './child/NumberingWizardWithLabel'
-import OrderByFollowingStep from './child/OrderByFollowingStep'
-import WizardWithBesideLabel from './child/WizardWithBesideLabel'
+import NumberingWizard from './molecule/tabs/NumberingWizard'
+import NumberingWizardWithLabel from './molecule/tabs/NumberingWizardWithLabel'
+import OrderByFollowingStep from './molecule/tabs/OrderByFollowingStep'
+import WizardWithBesideLabel from './molecule/tabs/WizardWithBesideLabel'
 
 const WizardLayer = () => {
     return (

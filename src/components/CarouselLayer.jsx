@@ -1,8 +1,8 @@
-import DefaultCarousel from "./child/DefaultCarousel";
-import CarouselWithArrows from "./child/CarouselWithArrows";
-import CarouselWithPagination from "./child/CarouselWithPagination";
-import CarouselWithProgress from "./child/CarouselWithProgress";
-import MultipleSlides from "./child/MultipleSlides";
+import DefaultCarousel from "./molecule/carousel/DefaultCarousel";
+import CarouselWithArrows from "./molecule/carousel/CarouselWithArrows";
+import CarouselWithPagination from "./molecule/carousel/CarouselWithPagination";
+import CarouselWithProgress from "./molecule/carousel/CarouselWithProgress";
+import MultipleSlides from "./molecule/gallery/MultipleSlides";
 
 const CarouselLayer = () => {
   return (

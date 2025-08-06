@@ -1,11 +1,11 @@
-import AverageDailySales from "./child/AverageDailySales";
-import MonthlyCampaignState from "./child/MonthlyCampaignState";
-import RecentActivityOne from "./child/RecentActivityOne";
-import RevenueStatisticOne from "./child/RevenueStatisticOne";
-import SalesByCountries from "./child/SalesByCountries";
-import SourceVisitors from "./child/SourceVisitors";
-import SupportTracker from "./child/SupportTracker";
-import TransactionsTwo from "./child/TransactionsTwo";
+import AverageDailySales from "./molecule/statistic/AverageDailySales";
+import MonthlyCampaignState from "./molecule/statistic/MonthlyCampaignState";
+import RecentActivityOne from "./molecule/statistic/RecentActivityOne";
+import RevenueStatisticOne from "./molecule/statistic/RevenueStatisticOne";
+import SalesByCountries from "./molecule/statistic/SalesByCountries";
+import SourceVisitors from "./molecule/statistic/SourceVisitors";
+import SupportTracker from "./molecule/statistic/SupportTracker";
+import TransactionsTwo from "./molecule/statistic/TransactionsTwo";
 import UpgradeYourPlan from "./child/UpgradeYourPlan";
 
 const DashBoardLayerNine = () => {

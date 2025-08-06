@@ -1,10 +1,10 @@
-import DefaultAlerts from "./child/DefaultAlerts";
-import OutlineAlerts from "./child/OutlineAlerts";
-import SolidAlerts from "./child/SolidAlerts";
-import OutlineAlertsTwo from "./child/OutlineAlertsTwo";
-import LeftBorderAlerts from "./child/LeftBorderAlerts";
-import DefaultAlertsTwo from "./child/DefaultAlertsTwo";
-import DefaultAlertsThree from "./child/DefaultAlertsThree";
+import DefaultAlerts from "@/components/atom/alert/DefaultAlerts";
+import OutlineAlerts from "@/components/atom/alert/OutlineAlerts";
+import SolidAlerts from "@/components/atom/alert/SolidAlerts";
+import OutlineAlertsTwo from "@/components/atom/alert/OutlineAlertsTwo";
+import LeftBorderAlerts from "@/components/atom/alert/LeftBorderAlerts";
+import DefaultAlertsTwo from "@/components/atom/alert/DefaultAlertsTwo";
+import DefaultAlertsThree from "@/components/atom/alert/DefaultAlertsThree";
 
 const AlertLayer = () => {
   return (

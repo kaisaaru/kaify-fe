@@ -1,5 +1,5 @@
-import Paypal from "./child/Paypal";
-import RazorPay from "./child/RazorPay";
+import Paypal from "./molecule/statistic/Paypal";
+import RazorPay from "./molecule/statistic/RazorPay";
 
 const PaymentGatewayLayer = () => {
   return (

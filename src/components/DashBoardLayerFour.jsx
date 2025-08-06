@@ -1,10 +1,10 @@
-import UnitCountThree from "./child/UnitCountThree";
-import CoinAnalyticsOne from "./child/CoinAnalyticsOne";
-import CoinAnalyticsTwo from "./child/CoinAnalyticsTwo";
-import MyOrdersOne from "./child/MyOrdersOne";
-import RecentTransactionOne from "./child/RecentTransactionOne";
-import MyCardsOne from "./child/MyCardsOne";
-import TotalBalanceOne from "./child/TotalBalanceOne";
+import UnitCountThree from "./molecule/statistic/UnitCountThree";
+import CoinAnalyticsOne from "./molecule/statistic/CoinAnalyticsOne";
+import CoinAnalyticsTwo from "./molecule/statistic/CoinAnalyticsTwo";
+import MyOrdersOne from "./molecule/statistic/MyOrdersOne";
+import RecentTransactionOne from "./molecule/statistic/RecentTransactionOne";
+import MyCardsOne from "./molecule/statistic/MyCardsOne";
+import TotalBalanceOne from "./molecule/statistic/TotalBalanceOne";
 import UserActivatesOne from "./child/UserActivatesOne";
 
 const DashBoardLayerFour = () => {

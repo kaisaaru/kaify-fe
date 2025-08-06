@@ -1,7 +1,7 @@
-import DefaultRadioTwo from "./child/DefaultRadioTwo";
-import SwitchDisable from "./child/SwitchDisable";
-import SwitchWithTex from "./child/SwitchWithTex";
-import SwitchHorizontal from "./child/SwitchHorizontal";
+import DefaultRadioTwo from "./molecule/form/DefaultRadioTwo";
+import SwitchDisable from "./molecule/form/SwitchDisable";
+import SwitchWithTex from "./molecule/form/SwitchWithTex";
+import SwitchHorizontal from "./molecule/form/SwitchHorizontal";
 
 const SwitchLayer = () => {
   return (

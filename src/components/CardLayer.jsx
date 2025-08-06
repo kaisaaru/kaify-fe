@@ -1,9 +1,9 @@
-import DefaultCard from "./child/DefaultCard";
-import CardTextIcon from "./child/CardTextIcon";
-import CardWithImageOverlays from "./child/CardWithImageOverlays";
-import CardHeaderFooter from "./child/CardHeaderFooter";
-import HorizontalCard from "./child/HorizontalCard";
-import CardWithBackgroundColor from "./child/CardWithBackgroundColor";
+import DefaultCard from "./molecule/card/DefaultCard";
+import CardTextIcon from "./molecule/card/CardTextIcon";
+import CardWithImageOverlays from "./molecule/card/CardWithImageOverlays";
+import CardHeaderFooter from "./molecule/card/CardHeaderFooter";
+import HorizontalCard from "./molecule/card/HorizontalCard";
+import CardWithBackgroundColor from "./molecule/card/CardWithBackgroundColor";
 
 const CardLayer = () => {
   return (

@@ -1,5 +1,5 @@
 import PricingPlanMultipleColor from './child/PricingPlanMultipleColor'
-import SimplePricingPlan from './child/SimplePricingPlan'
+import SimplePricingPlan from './molecule/statistic/SimplePricingPlan'
 
 const PricingLayer = () => {
     return (

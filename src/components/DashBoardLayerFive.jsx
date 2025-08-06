@@ -1,12 +1,12 @@
-import UnitCountFour from "./child/UnitCountFour";
-import RevenueStatisticsOne from "./child/RevenueStatisticsOne";
-import SalesStatisticTwo from "./child/SalesStatisticTwo";
-import TopCountriesTwo from "./child/TopCountriesTwo";
+import UnitCountFour from "./molecule/statistic/UnitCountFour";
+import RevenueStatisticsOne from "./molecule/statistic/RevenueStatisticsOne";
+import SalesStatisticTwo from "./molecule/statistic/SalesStatisticTwo";
+import TopCountriesTwo from "./molecule/statistic/TopCountriesTwo";
 import UserActivatesTwo from "./child/UserActivatesTwo";
-import LatestInvestmentsOne from "./child/LatestInvestmentsOne";
-import NoticeBoardOne from "./child/NoticeBoardOne";
-import TotalTransactionsOne from "./child/TotalTransactionsOne";
-import ProjectStatusOne from "./child/ProjectStatusOne";
+import LatestInvestmentsOne from "./molecule/statistic/LatestInvestmentsOne";
+import NoticeBoardOne from "./molecule/statistic/NoticeBoardOne";
+import TotalTransactionsOne from "./molecule/statistic/TotalTransactionsOne";
+import ProjectStatusOne from "./molecule/statistic/ProjectStatusOne";
 
 const DashBoardLayerFive = () => {
   return (

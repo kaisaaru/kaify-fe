@@ -11,14 +11,9 @@ export const metadata = {
 const Page = () => {
   return (
     <>
-      {/* MasterLayout */}
-      <MasterLayout>
-        {/* Breadcrumb */}
         <Breadcrumb title='Basic Table' />
 
-        {/* TableDataLayer */}
         <Barang />
-      </MasterLayout>
     </>
   );
 };

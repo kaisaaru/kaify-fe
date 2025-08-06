@@ -1,9 +1,9 @@
-import DefaultTooltip from "./child/DefaultTooltip";
-import DefaultTooltipTwo from "./child/DefaultTooltipTwo";
-import DefaultTooltipThree from "./child/DefaultTooltipThree";
-import TooltipPopoverPositions from "./child/TooltipPopoverPositions";
-import TooltipTextPopup from "./child/TooltipTextPopup";
-import TooltipTextWithIconPopup from "./child/TooltipTextWithIconPopup";
+import DefaultTooltip from "@/components/atom/tooltip/DefaultTooltip";
+import DefaultTooltipTwo from "@/components/atom/tooltip/DefaultTooltipTwo";
+import DefaultTooltipThree from "@/components/atom/tooltip/DefaultTooltipThree";
+import TooltipPopoverPositions from "@/components/atom/tooltip/TooltipPopoverPositions";
+import TooltipTextPopup from "@/components/atom/tooltip/TooltipTextPopup";
+import TooltipTextWithIconPopup from "@/components/atom/tooltip/TooltipTextWithIconPopup";
 const TooltipLayer = () => {
   return (
     <div className='row gy-4'>

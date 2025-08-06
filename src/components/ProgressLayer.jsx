@@ -1,12 +1,12 @@
-import DefaultProgress from "./child/DefaultProgress";
-import ProgressWithMultipleColor from "./child/ProgressWithMultipleColor";
-import ProgressWithRightLabel from "./child/ProgressWithRightLabel";
-import StripedProgress from "./child/StripedProgress";
-import AnimatedProgress from "./child/AnimatedProgress";
-import GradientProgress from "./child/GradientProgress";
-import GradientProgressTwo from "./child/GradientProgressTwo";
-import GradientProgressThree from "./child/GradientProgressThree";
-import ProgressCircle from "./child/ProgressCircle";
+import DefaultProgress from "@/components/atom/progress/DefaultProgress";
+import ProgressWithMultipleColor from "@/components/atom/progress/ProgressWithMultipleColor";
+import ProgressWithRightLabel from "@/components/atom/progress/ProgressWithRightLabel";
+import StripedProgress from "@/components/atom/progress/StripedProgress";
+import AnimatedProgress from "@/components/atom/progress/AnimatedProgress";
+import GradientProgress from "@/components/atom/progress/GradientProgress";
+import GradientProgressTwo from "@/components/atom/progress/GradientProgressTwo";
+import GradientProgressThree from "@/components/atom/progress/GradientProgressThree";
+import ProgressCircle from "@/components/atom/progress/ProgressCircle";
 
 const ProgressLayer = () => {
   return (

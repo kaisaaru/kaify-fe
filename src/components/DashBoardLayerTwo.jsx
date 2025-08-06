@@ -1,12 +1,12 @@
-import CampaignStaticOne from "./child/CampaignStaticOne";
-import ClientPaymentOne from "./child/ClientPaymentOne";
-import CountryStatusOne from "./child/CountryStatusOne";
-import EarningStaticOne from "./child/EarningStaticOne";
-import LastTransactionOne from "./child/LastTransactionOne";
-import LatestPerformanceOne from "./child/LatestPerformanceOne";
-import RevenueGrowthOne from "./child/RevenueGrowthOne";
-import TopPerformanceOne from "./child/TopperformanceOne";
-import UnitCountTwo from "./child/UnitCountTwo";
+import CampaignStaticOne from "./molecule/statistic/CampaignStaticOne";
+import ClientPaymentOne from "./molecule/statistic/ClientPaymentOne";
+import CountryStatusOne from "./molecule/statistic/CountryStatusOne";
+import EarningStaticOne from "./molecule/statistic/EarningStaticOne";
+import LastTransactionOne from "./molecule/statistic/LastTransactionOne";
+import LatestPerformanceOne from "./molecule/statistic/LatestPerformanceOne";
+import RevenueGrowthOne from "./molecule/statistic/RevenueGrowthOne";
+import TopPerformanceOne from "./molecule/statistic/TopperformanceOne";
+import UnitCountTwo from "./molecule/statistic/UnitCountTwo";
 
 const DashBoardLayerTwo = () => {
   return (

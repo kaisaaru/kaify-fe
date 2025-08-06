@@ -1,10 +1,10 @@
-import UnitCountFive from "./child/UnitCountFive";
-import TrafficSourcesOne from "./child/TrafficSourcesOne";
-import TopCategoriesOne from "./child/TopCategoriesOne";
-import TopInstructorsOne from "./child/TopInstructorsOne";
-import StudentProgressOne from "./child/StudentProgressOne";
-import CoursesOne from "./child/CoursesOne";
-import CourseActivityOne from "./child/CourseActivityOne";
+import UnitCountFive from "./molecule/statistic/UnitCountFive";
+import TrafficSourcesOne from "./molecule/statistic/TrafficSourcesOne";
+import TopCategoriesOne from "./molecule/statistic/TopCategoriesOne";
+import TopInstructorsOne from "./molecule/statistic/TopInstructorsOne";
+import StudentProgressOne from "./molecule/statistic/StudentProgressOne";
+import CoursesOne from "./molecule/statistic/CoursesOne";
+import CourseActivityOne from "./molecule/statistic/CourseActivityOne";
 
 const DashBoardLayerSix = () => {
   return (

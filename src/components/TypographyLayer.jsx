@@ -2,11 +2,11 @@ import React from 'react'
 import HeadingFont from './child/HeadingFont'
 import DisplayHeadingFont from './child/DisplayHeadingFont'
 import HeadingColorsFont from './child/HeadingColorsFont'
-import InlineTextElementsFont from './child/InlineTextElementsFont'
-import TextFont from './child/TextFont'
-import TextDecorationFont from './child/TextDecorationFont'
-import BlockquoteBackgroundColorTextFont from './child/BlockquoteBackgroundColorTextFont'
-import BlockquoteBorderColorFont from './child/BlockquoteBorderColorFont'
+import InlineTextElementsFont from '@/components/atom/typography/InlineTextElementsFont'
+import TextFont from '@/components/atom/typography/TextFont'
+import TextDecorationFont from '@/components/atom/typography/TextDecorationFont'
+import BlockquoteBackgroundColorTextFont from './atom/typography/BlockquoteBackgroundColorTextFont'
+import BlockquoteBorderColorFont from './atom/typography/BlockquoteBorderColorFont'
 
 const TypographyLayer = () => {
     return (

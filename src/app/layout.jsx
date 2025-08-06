@@ -1,6 +1,7 @@
 import PluginInit from "@/helper/PluginInit";
 import "./font.css";
 import "./globals.css";
+import MasterLayout from "@/masterLayout/MasterLayout";
 
 export const metadata = {
   title: "WowDash NEXT JS - Admin Dashboard Multipurpose Bootstrap 5 Template",
@@ -12,7 +13,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <PluginInit />
-      <body suppressHydrationWarning={true}>{children}</body>
+      <body suppressHydrationWarning={true}>
+      <MasterLayout>
+          {children}
+      </MasterLayout>
+      </body>
     </html>
   );
 }
