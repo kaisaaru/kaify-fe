@@ -1,12 +1,12 @@
-// barang/page.jsx
+// jenis-barang/page.jsx
 
-import Barang from "@/components/Barang";
+import JenisBarang from "@/components/JenisBarang";
 import MasterLayout from "@/masterLayout/MasterLayout";
 import { Icon } from "@iconify/react"; // <-- TAMBAHKAN IMPORT INI
 import Link from "next/link"; // <-- TAMBAHKAN IMPORT INI
 
 export const metadata = {
-  title: "Barang - Kaify",
+  title: "Jenis Barang - Kaify",
   description:
     "Wowdash NEXT JS is a developer-friendly, ready-to-use admin template designed for building attractive, scalable, and high-performing web applications.",
 };
@@ -32,12 +32,12 @@ const Page = () => {
               </Link>
             </li>
             <li> - </li>
-            <li className='fw-medium'>Barang</li>
+            <li className='fw-medium'>Jenis Barang</li>
           </ul>
         </div>
 
-        {/* Barang */}
-        <Barang />
+        {/* Jenis Barang */}
+        <JenisBarang />
       </MasterLayout>
     </>
   );
