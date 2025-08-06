@@ -1,10 +1,7 @@
-// File: src/hooks/useApiProxy.js
-
 import { useState, useCallback } from 'react';
 import axios from 'axios';
 
-// The base URL of your proxy server.
-// Make sure this matches the port your proxy server is running on.
+
 const PROXY_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
 
 /**
@@ -12,7 +9,7 @@ const PROXY_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000
  * It handles loading states, errors, and provides a simple interface for making requests.
  *
  * @returns {object} An object containing the fetched data, loading state, error state,
- * and a `request` function to trigger the API call.
+ * and functions to trigger API calls.
  */
 const useApiProxy = () => {
     const [data, setData] = useState(null);
@@ -20,12 +17,9 @@ const useApiProxy = () => {
     const [loading, setLoading] = useState(false);
 
     /**
-     * A memoized function to make an API request through the proxy.
-     * @param {string} endpoint - The API endpoint to hit (e.g., '/users', '/posts/1').
-     * @param {object} [options={}] - Optional configuration for the request.
-     * @param {'GET' | 'POST' | 'PUT' | 'DELETE'} [options.method='GET'] - The HTTP method.
-     * @param {object} [options.body] - The request body for POST/PUT requests.
-     * @param {object} [options.headers] - Custom headers for the request.
+     * A memoized function to make any API request through the proxy.
+     * It's recommended to use the specific method functions like post(), get(), etc.
+     * This function will automatically add the auth token to the headers if it exists.
      */
     const request = useCallback(async (endpoint, options = {}) => {
         setLoading(true);
@@ -33,11 +27,24 @@ const useApiProxy = () => {
         setData(null);
 
         try {
+            // Retrieve the token from localStorage
+            const token = localStorage.getItem('authToken');
+
+            // Prepare the headers
+            const headers = {
+                ...options.headers,
+            };
+
+            // If a token exists, add it to the Authorization header
+            if (token) {
+                headers['Authorization'] = `Bearer ${token}`;
+            }
+
             const response = await axios({
                 method: options.method || 'GET',
                 url: `${PROXY_BASE_URL}${endpoint}`,
                 data: options.body,
-                headers: options.headers,
+                headers: headers, // Use the updated headers
             });
 
             setData(response.data);
@@ -53,7 +60,23 @@ const useApiProxy = () => {
         }
     }, []);
 
-    return { data, error, loading, request };
+    /**
+     * A helper function to make a POST request.
+     * @param {string} endpoint - The API endpoint to hit.
+     * @param {object} body - The request body.
+     * @param {object} [options={}] - Optional configuration for the request.
+     * @returns {Promise<any>} The response data from the API.
+     */
+    const post = useCallback((endpoint, body, options = {}) => {
+        return request(endpoint, {
+            ...options,
+            method: 'POST',
+            body,
+        });
+    }, [request]);
+
+
+    return { data, error, loading, request, post };
 };
 
 export default useApiProxy;
