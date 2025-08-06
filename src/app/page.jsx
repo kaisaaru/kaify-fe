@@ -11,14 +11,11 @@ export const metadata = {
 const Page = () => {
   return (
     <>
-      {/* MasterLayout */}
-      <MasterLayout>
-        {/* Breadcrumb */}
-        <Breadcrumb title='AI' />
+        <MasterLayout>
+            <Breadcrumb title='AI' />
+            <DashBoardLayerOne />
+        </MasterLayout>
 
-        {/* DashBoardLayerOne */}
-        <DashBoardLayerOne />
-      </MasterLayout>
     </>
   );
 };

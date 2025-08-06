@@ -1,50 +1,25 @@
 // src/components/layout/Header.jsx
+'use client'; // <-- Step 1: Make it a client component
+
 import React from "react";
 import Link from "next/link";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import ThemeToggleButton from "@/helper/ThemeToggleButton";
+import useAuth from "@/hook/useAuth";
 
 const Header = ({ sidebarActive, sidebarControl, mobileMenuControl }) => {
+    const { logout } = useAuth(); // <-- Step 2: Get the logout function
+
     return (
         <div className='navbar-header'>
             <div className='row align-items-center justify-content-between'>
                 <div className='col-auto'>
-                    <div className='d-flex flex-wrap align-items-center gap-4'>
-                        <button type='button' className='sidebar-toggle' onClick={sidebarControl}>
-                            {sidebarActive ? (
-                                <Icon icon='iconoir:arrow-right' className='icon text-2xl non-active' />
-                            ) : (
-                                <Icon icon='heroicons:bars-3-solid' className='icon text-2xl non-active' />
-                            )}
-                        </button>
-                        <button onClick={mobileMenuControl} type='button' className='sidebar-mobile-toggle'>
-                            <Icon icon='heroicons:bars-3-solid' className='icon' />
-                        </button>
-                        <form className='navbar-search'>
-                            <input type='text' name='search' placeholder='Search' />
-                            <Icon icon='ion:search-outline' className='icon' />
-                        </form>
-                    </div>
+                    {/* ... your other code ... */}
                 </div>
                 <div className='col-auto'>
                     <div className='d-flex flex-wrap align-items-center gap-3'>
                         <ThemeToggleButton />
-                        {/* You can further componentize these dropdowns */}
-
-                        {/* Language Dropdown */}
-                        <div className='dropdown d-none d-sm-inline-block'>
-                            {/* ... content of language dropdown ... */}
-                        </div>
-
-                        {/* Message Dropdown */}
-                        <div className='dropdown'>
-                            {/* ... content of message dropdown ... */}
-                        </div>
-
-                        {/* Notification Dropdown */}
-                        <div className='dropdown'>
-                            {/* ... content of notification dropdown ... */}
-                        </div>
+                        {/* ... other dropdowns ... */}
 
                         {/* Profile Dropdown */}
                         <div className='dropdown'>
@@ -65,7 +40,12 @@ const Header = ({ sidebarActive, sidebarControl, mobileMenuControl }) => {
                                     <li> <Link className='dropdown-item ...' href='/view-profile'> <Icon icon='solar:user-linear' className='icon text-xl' /> My Profile</Link> </li>
                                     <li> <Link className='dropdown-item ...' href='/email'> <Icon icon='tabler:message-check' className='icon text-xl' /> Inbox</Link> </li>
                                     <li> <Link className='dropdown-item ...' href='/company'> <Icon icon='icon-park-outline:setting-two' className='icon text-xl' /> Setting</Link> </li>
-                                    <li> <Link className='dropdown-item ...' href='#'> <Icon icon='lucide:power' className='icon text-xl' /> Log Out</Link> </li>
+                                    {/* Step 3: Updated Log Out element */}
+                                    <li>
+                                        <button type='button' className='dropdown-item ...' onClick={logout}>
+                                            <Icon icon='lucide:power' className='icon text-xl' /> Log Out
+                                        </button>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

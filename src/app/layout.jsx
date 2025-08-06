@@ -14,9 +14,7 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <PluginInit />
       <body suppressHydrationWarning={true}>
-      <MasterLayout>
           {children}
-      </MasterLayout>
       </body>
     </html>
   );

@@ -24,9 +24,9 @@ const mockApiData = [
         link: '#',
         order_num: 10,
         children: [
-            { id: 2, name: 'Barang', link: '/barang', order_num: 1, parent_id: 1 },
-            { id: 3, name: 'Jenis Barang', link: '/jenis-barang', order_num: 2, parent_id: 1 },
-            { id: 4, name: 'Supplier', link: '/supplier', order_num: 3, parent_id: 1 },
+            { id: 2, name: 'Barang', link: '/main/barang', order_num: 1, parent_id: 1 },
+            { id: 3, name: 'Jenis Barang', link: '/main/jenis-barang', order_num: 2, parent_id: 1 },
+            { id: 4, name: 'Supplier', link: '/main/supplier', order_num: 3, parent_id: 1 },
         ]
     },
     {
@@ -36,8 +36,8 @@ const mockApiData = [
         link: '#',
         order_num: 20,
         children: [
-            { id: 6, name: 'Barang Masuk', link: '/barang-masuk', order_num: 1, parent_id: 5 },
-            { id: 7, name: 'Barang Keluar', link: '/barang-keluar', order_num: 2, parent_id: 5 },
+            { id: 6, name: 'Barang Masuk', link: '/main/barang-masuk', order_num: 1, parent_id: 5 },
+            { id: 7, name: 'Barang Keluar', link: '/main/barang-keluar', order_num: 2, parent_id: 5 },
         ]
     },
     {
@@ -47,8 +47,8 @@ const mockApiData = [
         link: '#',
         order_num: 30,
         children: [
-            { id: 10, name: 'Laporan Barang Masuk', link: '/report/barang-masuk', order_num: 1, parent_id: 9 },
-            { id: 11, name: 'Laporan Barang Keluar', link: '/report/barang-keluar', order_num: 2, parent_id: 9 },
+            { id: 10, name: 'Laporan Barang Masuk', link: '/main/report/barang-masuk', order_num: 1, parent_id: 9 },
+            { id: 11, name: 'Laporan Barang Keluar', link: '/main/report/barang-keluar', order_num: 2, parent_id: 9 },
         ]
     },
     {
@@ -58,8 +58,9 @@ const mockApiData = [
         link: '#',
         order_num: 40,
         children: [
-            { id: 13, name: 'User', link: '/user', order_num: 1, parent_id: 12 },
-            { id: 14, name: 'Accesses', link: '/menu-access', order_num: 2, parent_id: 12 },
+            { id: 13, name: 'User', link: '/main/user', order_num: 1, parent_id: 12 },
+            { id: 14, name: 'Role', link: '/main/role', order_num: 2, parent_id: 12 },
+            { id: 15, name: 'Accesses', link: '/main/menu-access', order_num: 2, parent_id: 12 },
         ]
     },
 ];
@@ -68,12 +69,10 @@ const mockApiData = [
 const Sidebar = ({ sidebarActive, mobileMenu, mobileMenuControl }) => {
     const pathname = usePathname();
 
-    // We only need to sort the data, as it's pre-filtered by the API.
     const menuItems = useMemo(() => {
         return mockApiData.sort((a, b) => a.order_num - b.order_num);
-    }, []); // In a real app, you might add the prop for your data to the dependency array.
+    }, []);
 
-    // This useEffect for handling clicks remains unchanged.
     useEffect(() => {
         if (typeof window === "undefined") return;
 
