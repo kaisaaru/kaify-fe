@@ -1,6 +1,6 @@
-// barang/page.jsx
+// supplier/page.jsx
 
-import Barang from "@/components/Barang";
+import Supplier from "@/components/Supplier";
 import MasterLayout from "@/masterLayout/MasterLayout";
 import { Icon } from "@iconify/react"; // <-- TAMBAHKAN IMPORT INI
 import Link from "next/link"; // <-- TAMBAHKAN IMPORT INI
@@ -32,12 +32,12 @@ const Page = () => {
               </Link>
             </li>
             <li> - </li>
-            <li className='fw-medium'>Barang</li>
+            <li className='fw-medium'>Supplier</li>
           </ul>
         </div>
 
-        {/* Barang */}
-        <Barang />
+        {/* Supplier */}
+        <Supplier />
       </MasterLayout>
     </>
   );
