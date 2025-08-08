@@ -24,9 +24,9 @@ const mockApiData = [
         link: '#',
         order_num: 10,
         children: [
-            { id: 2, name: 'Barang', link: '/main/barang', order_num: 1, parent_id: 1 },
-            { id: 3, name: 'Jenis Barang', link: '/main/jenis-barang', order_num: 2, parent_id: 1 },
-            { id: 4, name: 'Supplier', link: '/main/supplier', order_num: 3, parent_id: 1 },
+            { id: 2, name: 'Barang', link: '/main/maintenance/barang', order_num: 1, parent_id: 1 },
+            { id: 3, name: 'Jenis Barang', link: '/main/maintenance/jenis-barang', order_num: 2, parent_id: 1 },
+            { id: 4, name: 'Supplier', link: '/main/maintenance/supplier', order_num: 3, parent_id: 1 },
         ]
     },
     {

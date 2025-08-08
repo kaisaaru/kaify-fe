@@ -42,7 +42,7 @@ const Header = ({ sidebarActive, sidebarControl, mobileMenuControl }) => {
                                     <li> <Link className='dropdown-item ...' href='/company'> <Icon icon='icon-park-outline:setting-two' className='icon text-xl' /> Setting</Link> </li>
                                     {/* Step 3: Updated Log Out element */}
                                     <li>
-                                        <button type='button' className='dropdown-item ...' onClick={logout}>
+                                        <button type='button' className='dropdown-item text-black px-0 py-8 hover-bg-transparent hover-text-danger d-flex align-items-center gap-3' onClick={logout}>
                                             <Icon icon='lucide:power' className='icon text-xl' /> Log Out
                                         </button>
                                     </li>
