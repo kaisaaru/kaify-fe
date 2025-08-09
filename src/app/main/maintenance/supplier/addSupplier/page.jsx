@@ -1,5 +1,5 @@
 import Breadcrumb from "@/components/Breadcrumb";
-import Supplier from "@/components/Supplier";
+import AddSupplier from "@/components/AddSupplier";
 import MasterLayout from "@/masterLayout/MasterLayout";
 
 export const metadata = {
@@ -11,9 +11,9 @@ export const metadata = {
 const Page = () => {
   return (
     <>
-        <Breadcrumb title='Supplier' />
+        <Breadcrumb title='AddSupplier' />
 
-        <Supplier />
+        <AddSupplier />
     </>
   );
 };
