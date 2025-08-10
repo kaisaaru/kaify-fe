@@ -1,8 +1,9 @@
-"use client";
+'use client';
 
 import { useState } from 'react';
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from 'next/navigation';
 import useAuth from "@/hook/useAuth";
 
@@ -26,14 +27,26 @@ const SignInLayer = () => {
         <section className='auth bg-base d-flex flex-wrap'>
             <div className='auth-left d-lg-block d-none'>
                 <div className='d-flex align-items-center flex-column h-100 justify-content-center'>
-                    <img src='/assets/images/auth/auth-img.png' alt='Authentication' />
+                    <Image 
+                        src='/assets/images/logo.png'
+                        alt='Authentication'
+                        width={500}
+                        height={500}
+                        priority
+                    />
                 </div>
             </div>
             <div className='auth-right py-32 px-24 d-flex flex-column justify-content-center'>
                 <div className='max-w-464-px mx-auto w-100'>
                     <div>
-                        <Link href='/' className='mb-40 max-w-290-px'>
-                            <img src='/assets/images/logo.png' alt='Logo' />
+                        <Link href='/' className='mb-40 max-w-290-px d-block'>
+                            <Image 
+                                src='/assets/images/logo.png' 
+                                alt='logo' 
+                                width={150} 
+                                height={40}
+                                priority
+                            />
                         </Link>
                         <h4 className='mb-12'>Sign In to your Account</h4>
                         <p className='mb-32 text-secondary-light text-lg'>
