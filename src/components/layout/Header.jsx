@@ -8,13 +8,42 @@ import ThemeToggleButton from "@/helper/ThemeToggleButton";
 import useAuth from "@/hook/useAuth";
 
 const Header = ({ sidebarActive, sidebarControl, mobileMenuControl }) => {
-    const { logout } = useAuth(); // <-- Step 2: Get the logout function
-
+    const { user, logout } = useAuth();
+    
     return (
         <div className='navbar-header'>
             <div className='row align-items-center justify-content-between'>
                 <div className='col-auto'>
-                    {/* ... your other code ... */}
+                    <div className='d-flex flex-wrap align-items-center gap-4'>
+                        <button
+                            type='button'
+                            className='sidebar-toggle'
+                            onClick={sidebarControl}
+                        >
+                            {sidebarActive ? (
+                                <Icon
+                                    icon='iconoir:arrow-right'
+                                    className='icon text-2xl non-active'
+                                />
+                            ) : (
+                                <Icon
+                                    icon='heroicons:bars-3-solid'
+                                    className='icon text-2xl non-active '
+                                />
+                            )}
+                        </button>
+                        <button
+                            onClick={mobileMenuControl}
+                            type='button'
+                            className='sidebar-mobile-toggle'
+                        >
+                            <Icon icon='heroicons:bars-3-solid' className='icon' />
+                        </button>
+                        <form className='navbar-search'>
+                            <input type='text' name='search' placeholder='Search' />
+                            <Icon icon='ion:search-outline' className='icon' />
+                        </form>
+                    </div>
                 </div>
                 <div className='col-auto'>
                     <div className='d-flex flex-wrap align-items-center gap-3'>
@@ -29,17 +58,21 @@ const Header = ({ sidebarActive, sidebarControl, mobileMenuControl }) => {
                             <div className='dropdown-menu to-top dropdown-menu-sm'>
                                 <div className='py-12 px-16 radius-8 bg-primary-50 mb-16 d-flex align-items-center justify-content-between gap-2'>
                                     <div>
-                                        <h6 className='text-lg text-primary-light fw-semibold mb-2'> Shaidul Islam </h6>
-                                        <span className='text-secondary-light fw-medium text-sm'> Admin </span>
+                                        <h6 className='text-lg text-primary-light fw-semibold mb-2'>
+                                            {user?.name || 'Guest'}
+                                        </h6>
+                                        <span className='text-secondary-light fw-medium text-sm'>
+                                            {user?.role || 'User'}
+                                        </span>
                                     </div>
                                     <button type='button' className='hover-text-danger'>
                                         <Icon icon='radix-icons:cross-1' className='icon text-xl' />
                                     </button>
                                 </div>
                                 <ul className='to-top-list'>
-                                    <li> <Link className='dropdown-item ...' href='/view-profile'> <Icon icon='solar:user-linear' className='icon text-xl' /> My Profile</Link> </li>
-                                    <li> <Link className='dropdown-item ...' href='/email'> <Icon icon='tabler:message-check' className='icon text-xl' /> Inbox</Link> </li>
-                                    <li> <Link className='dropdown-item ...' href='/company'> <Icon icon='icon-park-outline:setting-two' className='icon text-xl' /> Setting</Link> </li>
+                                    <li> <Link className='dropdown-item text-black px-0 py-8 hover-bg-transparent hover-text-primary d-flex align-items-center gap-3' href='/view-profile'> <Icon icon='solar:user-linear' className='icon text-xl' /> My Profile</Link> </li>
+                                    <li> <Link className='dropdown-item text-black px-0 py-8 hover-bg-transparent hover-text-primary d-flex align-items-center gap-3' href='/email'> <Icon icon='tabler:message-check' className='icon text-xl' /> Inbox</Link> </li>
+                                    <li> <Link className='dropdown-item text-black px-0 py-8 hover-bg-transparent hover-text-primary d-flex align-items-center gap-3' href='/company'> <Icon icon='icon-park-outline:setting-two' className='icon text-xl' /> Setting</Link> </li>
                                     {/* Step 3: Updated Log Out element */}
                                     <li>
                                         <button type='button' className='dropdown-item text-black px-0 py-8 hover-bg-transparent hover-text-danger d-flex align-items-center gap-3' onClick={logout}>
