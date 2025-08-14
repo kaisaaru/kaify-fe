@@ -1,31 +1,57 @@
 import useApiProxy from './useApiProxy';
+import Cookies from 'js-cookie';
 
-/**
- * Custom hook for supplier CRUD operations.
- */
 const useSupplier = () => {
-  const { get, post, put, del, loading, error, data } = useApiProxy();
+  const { get, post, patch, del, loading, error, data } = useApiProxy();
+
+  const getAuthHeaders = () => {
+    const token = Cookies.get('authToken');
+    return {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    };
+  };
+
+  const getAllSuppliers = async () => {
+    try {
+      const res = await get('/suppliers', getAuthHeaders());
+      return Array.isArray(res) ? res : res?.data || [];
+    } catch (err) {
+      console.error(err);
+      return [];
+    }
+  };
+
+
 
   const getSupplier = async (id) => {
-    const endpoint = `/suppliers/${id}`;
-    return await get(endpoint);
+    return await get(`/suppliers/${id}`, getAuthHeaders());
   };
 
   const createSupplier = async (supplierData) => {
-    const endpoint = `/suppliers`;
-    return await post(endpoint, supplierData, {
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return await post('/suppliers', supplierData, getAuthHeaders());
   };
 
   const updateSupplier = async (id, supplierData) => {
-    const endpoint = `/suppliers/${id}`;
-    return await put(endpoint, supplierData, {
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return await patch(`/suppliers/${id}`, supplierData, getAuthHeaders());
   };
 
-  return { getSupplier, createSupplier, updateSupplier, loading, error, data };
+  const deleteSupplier = async (id) => {
+    return await del(`/suppliers/${id}`, getAuthHeaders());
+  };
+
+  return {
+    getAllSuppliers,
+    getSupplier,
+    createSupplier,
+    updateSupplier,
+    deleteSupplier,
+    loading,
+    error,
+    data
+  };
 };
 
 export default useSupplier;

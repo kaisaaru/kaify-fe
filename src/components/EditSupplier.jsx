@@ -1,9 +1,9 @@
 "use client";import { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
-import useSupplier from '@/hooks/useSupplier';
+import useSupplier from '@/hook/useSupplier';
 
 export function EditSupplier() {
-  const { getSupplierById, updateSupplier, loading, error } = useSupplier();
+  const { getSupplier, updateSupplier, loading, error } = useSupplier();
   const router = useRouter();
   const { id } = useParams(); // assumes dynamic route /suppliers/[id]/edit
 
@@ -22,7 +22,7 @@ export function EditSupplier() {
     if (!id) return;
 
     const fetchSupplier = async () => {
-      const supplier = await getSupplierById(id);
+      const supplier = await getSupplier(id);
       if (supplier) {
         setFormData({
           name: supplier.name || '',
@@ -48,7 +48,7 @@ export function EditSupplier() {
     const res = await updateSupplier(id, formData);
     if (res) {
       alert('Supplier updated successfully');
-      router.push('/suppliers');
+      router.push('/main/maintenance/supplier');
     }
   };
 

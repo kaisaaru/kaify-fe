@@ -28,7 +28,7 @@ export function AddSupplier() {
     const res = await createSupplier(formData);
     if (res) {
       alert('Supplier created successfully');
-      router.push('/suppliers');
+      router.push('/main/maintenance/supplier');
     }
   };
 

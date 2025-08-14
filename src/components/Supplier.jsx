@@ -1,139 +1,149 @@
 "use client";
-//import Swal from 'sweetalert2';
-import { useEffect } from "react";
-import Link from "next/link";
-import { Icon } from "@iconify/react/dist/iconify.js";
-const loadJQueryAndDataTables = async () => {
-  const $ = (await import("jquery")).default;
-  await import("datatables.net-dt/js/dataTables.dataTables.js");
-  return $;
-};
+import { useEffect, useRef, forwardRef, useImperativeHandle } from "react";
+import useSupplier from "@/hook/useSupplier";
 
-// const handleDelete = () => {
-//   Swal.fire({
-//     title: 'Are you sure?',
-//     text: "This action cannot be undone!",
-//     icon: 'warning',
-//     showCancelButton: true,
-//     confirmButtonColor: '#d33',
-//     cancelButtonColor: '#6c757d',
-//     confirmButtonText: 'Yes, delete it!',
-//   }).then((result) => {
-//     if (result.isConfirmed) {
-//       // Proceed with the delete action here
-//       // For example, call an API or emit an event
-//       console.log('Deleted!');
-//       Swal.fire('Deleted!', 'Your item has been deleted.', 'success');
-//     }
-//   });
-// };
+const SupplierTable = forwardRef(({ librariesLoaded }, ref) => {
+  const { getAllSuppliers, deleteSupplier } = useSupplier();
+  const dataTableRef = useRef(null);
 
-const Supplier = () => {
+  // Expose refresh method to parent
+  useImperativeHandle(ref, () => ({
+    refresh() {
+      if (dataTableRef.current) {
+        dataTableRef.current.ajax.reload(null, false);
+      }
+    },
+  }));
+
   useEffect(() => {
-    let table;
-    loadJQueryAndDataTables()
-      .then(($) => {
-        window.$ = window.jQuery = $;
-        // Initialize DataTable
-        table = $("#dataTable").DataTable({
-          pageLength: 10,
-        });
-      })
-      .catch((error) => {
-        console.error("Error loading jQuery or DataTables:", error);
-      });
+    if (!librariesLoaded) return;
+
+    const $ = window.jQuery;
+    const tableElement = $("#suppliers-table");
+
+    if ($.fn.DataTable.isDataTable(tableElement)) return;
+
+    const dataTable = tableElement.DataTable({
+      serverSide: false, // client-side mode
+      processing: true,
+      ajax: (data, callback) => {
+        let aborted = false;
+
+        (async () => {
+          try {
+            const suppliers = await getAllSuppliers(); // returns { data: [] }
+            if (!aborted) {
+              callback({ data: suppliers.data || suppliers });
+            }
+          } catch (err) {
+            console.error("Error fetching suppliers:", err);
+            if (!aborted) {
+              callback({ data: [] });
+            }
+          }
+        })();
+
+        // return an abortable object to prevent xhr.abort errors
+        return { abort: () => { aborted = true; } };
+      },
+      columns: [
+        {
+          data: null,
+          orderable: false,
+          render: (data, type, row, meta) => meta.row + 1,
+        },
+        { data: "name", defaultContent: "<em>N/A</em>" },
+        { data: "address", defaultContent: "<em>N/A</em>" },
+        { data: "phone", defaultContent: "<em>N/A</em>" },
+        { data: "website", defaultContent: "<em>N/A</em>" },
+        { data: "bankAccount", defaultContent: "<em>N/A</em>" },
+        { data: "note", defaultContent: "<em>N/A</em>" },
+        {
+          data: "id",
+          orderable: false,
+          render: (id) => `
+          <a href="/main/maintenance/supplier/${id}" 
+             class="w-32-px h-32-px me-8 bg-primary-light text-primary-600 rounded-circle d-inline-flex align-items-center justify-content-center" 
+             title="View">
+             <i class="iconify" data-icon="iconamoon:eye-light"></i>
+          </a>
+          <a href="/main/maintenance/supplier/editSupplier/${id}" 
+             class="w-32-px h-32-px me-8 bg-success-focus text-success-main rounded-circle d-inline-flex align-items-center justify-content-center" 
+             title="Edit">
+             <i class="iconify" data-icon="lucide:edit"></i>
+          </a>
+          <a href="#" data-supplier-id="${id}" 
+             class="w-32-px h-32-px bg-danger-focus text-danger-main rounded-circle d-inline-flex align-items-center justify-content-center delete-supplier-btn" 
+             title="Delete">
+             <i class="iconify" data-icon="mingcute:delete-2-line"></i>
+          </a>
+        `,
+        },
+      ],
+      responsive: true,
+      pageLength: 10,
+      language: {
+        search: "_INPUT_",
+        searchPlaceholder: "Search...",
+      },
+      pagingType: "simple_numbers",
+    });
+
+    dataTableRef.current = dataTable;
+
+    // Delete handler
+    tableElement.on("click", ".delete-supplier-btn", async function (e) {
+      e.preventDefault();
+      const supplierId = $(this).data("supplier-id");
+      if (confirm("Are you sure you want to delete this supplier?")) {
+        try {
+          await deleteSupplier(supplierId);
+
+          // Instead of reloading entire table, remove the row directly
+          const row = $(this).closest("tr");
+          dataTable.row(row).remove().draw(false);
+        } catch (err) {
+          console.error("Failed to delete supplier:", err);
+        }
+      }
+    });
+
+    // Iconify render after draw
+    const iconifyScan = () => {
+      if (window.Iconify) window.Iconify.scan();
+    };
+    dataTable.on("draw", iconifyScan);
 
     return () => {
-      // Cleanup DataTable instance
-      if (table) table.destroy(true);
+      dataTable.off("draw", iconifyScan);
+      tableElement.off("click", ".delete-supplier-btn");
+      if ($.fn.DataTable.isDataTable(tableElement)) {
+        tableElement.DataTable().destroy();
+      }
     };
-  }, []);
+  }, [librariesLoaded]);
+
+
+
   return (
-    <div className='card basic-data-table'>
-     <div className='card-header d-flex justify-content-between align-items-center'>
-        <h5 className='card-title mb-0'>Default Data Tables</h5>
-        <Link
-          href={'/main/maintenance/supplier/addSupplier'}
-          className='btn btn-primary'
-        >
-          Add Supplier
-        </Link>
-      </div>
-      <div className='card-body'>
-        <table
-          className='table bordered-table mb-0'
-          id='dataTable'
-          data-page-length={10}
-        >
-          <thead>
-            <tr>
-              <th scope='col'>
-                <div className='form-check style-check d-flex align-items-center'>
-                  <input className='form-check-input' type='checkbox' />
-                  <label className='form-check-label'>No</label>
-                </div>
-              </th>
-              <th scope='col'>Nama Supplier</th>
-              <th scope='col'>Alamat</th>
-              <th scope='col'>Nomor HP</th>
-              <th scope='col'>Website</th>
-              <th scope='col'>Bank Account</th>
-              <th scope='col'>Aksi</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div className='form-check style-check d-flex align-items-center'>
-                  <input className='form-check-input' type='checkbox' />
-                  <label className='form-check-label'>01</label>
-                </div>
-              </td>
-              <td>
-                <h6 className='text-md mb-0 fw-medium flex-grow-1'>
-                    Kathryn Murphy
-                  </h6>
-              </td>
-              <td>
-                <div className='d-flex align-items-center'>
-                  jl.titit bulus
-                </div>
-              </td>
-              <td>+628252432</td>
-              <td>GPT.nigger</td>
-              <td>
-                Bank nigger
-              </td>
-              <td>
-                <Link
-                  href='#'
-                  className='w-32-px h-32-px me-8 bg-primary-light text-primary-600 rounded-circle d-inline-flex align-items-center justify-content-center'
-                >
-                  <Icon icon='iconamoon:eye-light' />
-                </Link>
-                <Link
-                  href='#'
-                  className='w-32-px h-32-px me-8 bg-success-focus text-success-main rounded-circle d-inline-flex align-items-center justify-content-center'
-                >
-                  <Icon icon='lucide:edit' />
-                </Link>
-                <Link
-                href='#'
-                onClick={(e) => {
-                    e.preventDefault();
-                    handleDelete();
-                }}
-                className='w-32-px h-32-px me-8 bg-danger-focus text-danger-main rounded-circle d-inline-flex align-items-center justify-content-center'
-                >
-                <Icon icon='mingcute:delete-2-line' />
-                </Link>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <div className="table-responsive">
+      <table id="suppliers-table" className="table bordered-table w-100">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama Supplier</th>
+            <th>Alamat</th>
+            <th>Nomor HP</th>
+            <th>Website</th>
+            <th>Bank Account</th>
+            <th>Note</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>{/* Filled by DataTables */}</tbody>
+      </table>
     </div>
   );
-};
+});
 
-export default Supplier;
+export default SupplierTable;

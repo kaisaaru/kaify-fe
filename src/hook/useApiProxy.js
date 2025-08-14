@@ -67,16 +67,32 @@ const useApiProxy = () => {
      * @param {object} [options={}] - Optional configuration for the request.
      * @returns {Promise<any>} The response data from the API.
      */
-    const post = useCallback((endpoint, body, options = {}) => {
-        return request(endpoint, {
-            ...options,
-            method: 'POST',
-            body,
-        });
+     const get = useCallback((endpoint, options = {}) => {
+        return request(endpoint, { 
+            ...options, method: 'GET'
+         });
     }, [request]);
 
+    const patch = useCallback((endpoint, body, options = {}) => {
+        return request(endpoint, { 
+            ...options, method: 'PATCH', body
+         });
+    }, [request]);
 
-    return { data, error, loading, request, post };
+    const del = useCallback((endpoint, options = {}) => {
+        return request(endpoint, { 
+            ...options, method: 'DELETE'
+         });
+    }, [request]);
+
+    const post = useCallback((endpoint, body, options = {}) => {
+        return request(endpoint, { 
+            ...options, method: 'POST', body
+         });
+    }, [request]);
+
+    return { data, error, loading, request, get, post, patch, del };
+    
 };
 
 export default useApiProxy;
