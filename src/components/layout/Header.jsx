@@ -6,10 +6,13 @@ import Link from "next/link";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import ThemeToggleButton from "@/helper/ThemeToggleButton";
 import useAuth from "@/hook/useAuth";
+// import useCurrentUser from "@/hook/useCurrentUser"; // opsi A
+import useCurrentUserFromJwt from "@/hook/useCurrentUserFromJwt"; // opsi B (fallback)
 
 const Header = ({ sidebarActive, sidebarControl, mobileMenuControl }) => {
-    const { user, logout } = useAuth();
-    
+    const { logout } = useAuth();
+    const { user } = useCurrentUserFromJwt(); // pakai ini kalau belum ada /auth/me
+
     return (
         <div className='navbar-header'>
             <div className='row align-items-center justify-content-between'>
@@ -59,10 +62,10 @@ const Header = ({ sidebarActive, sidebarControl, mobileMenuControl }) => {
                                 <div className='py-12 px-16 radius-8 bg-primary-50 mb-16 d-flex align-items-center justify-content-between gap-2'>
                                     <div>
                                         <h6 className='text-lg text-primary-light fw-semibold mb-2'>
-                                            {user?.name || 'Guest'}
+                                            {(user?.username || 'MASA GADA WOI')}
                                         </h6>
                                         <span className='text-secondary-light fw-medium text-sm'>
-                                            {user?.role || 'User'}
+                                            {(user?.role || 'User')}
                                         </span>
                                     </div>
                                     <button type='button' className='hover-text-danger'>
