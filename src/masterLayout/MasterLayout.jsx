@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import Sidebar from "@/components/layout/Siderbar";
+import Sidebar from "@/components/layout/Sidebar";
 import Script from "next/script";
 
 

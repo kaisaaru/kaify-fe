@@ -1,6 +1,7 @@
 import Breadcrumb from "@/components/Breadcrumb";
-import Barang from "@/components/Barang";
+import Barang from "@/components/pages/maintenance/Barang";
 import MasterLayout from "@/masterLayout/MasterLayout";
+import QueryProvider from "@/components/QueryProvider"; // ⬅️ tambahkan
 
 export const metadata = {
   title: "WowDash NEXT JS - Admin Dashboard Multipurpose Bootstrap 5 Template",
@@ -11,9 +12,12 @@ export const metadata = {
 const Page = () => {
   return (
     <>
-        <Breadcrumb title='Basic Table' />
+      <Breadcrumb title='Basic Table' />
 
+      {/* ⬇️ Bungkus Barang dengan provider */}
+      <QueryProvider>
         <Barang />
+      </QueryProvider>
     </>
   );
 };

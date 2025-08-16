@@ -24,9 +24,11 @@ const mockApiData = [
         link: '#',
         order_num: 10,
         children: [
-            { id: 2, name: 'Barang', link: '/main/maintenance/barang', order_num: 1, parent_id: 1 },
-            { id: 3, name: 'Jenis Barang', link: '/main/maintenance/jenis-barang', order_num: 2, parent_id: 1 },
-            { id: 4, name: 'Supplier', link: '/main/maintenance/supplier', order_num: 3, parent_id: 1 },
+            { id: 1, name: 'Sistem', link: '/main/maintenance/system', order_num: 1, parent_id: 1 },
+            { id: 2, name: 'Kategori', link: '/main/maintenance/kategori', order_num: 2, parent_id: 1 },
+            { id: 3, name: 'Kelompok', link: '/main/maintenance/kelompok', order_num: 3, parent_id: 1 },
+            { id: 4, name: 'Barang', link: '/main/maintenance/barang', order_num: 4, parent_id: 1 },
+            { id: 5, name: 'Relasi', link: '/main/maintenance/relasi', order_num: 5, parent_id: 1 },
         ]
     },
     {
@@ -121,7 +123,7 @@ const Sidebar = ({ sidebarActive, mobileMenu, mobileMenuControl }) => {
     }, [pathname]);
 
     return (
-        <aside className={ sidebarActive ? "sidebar active" : mobileMenu ? "sidebar sidebar-open" : "sidebar" } >
+        <aside className={sidebarActive ? "sidebar active" : mobileMenu ? "sidebar sidebar-open" : "sidebar"} >
             <button onClick={mobileMenuControl} type='button' className='sidebar-close-btn'>
                 <Icon icon='radix-icons:cross-2' />
             </button>
@@ -135,20 +137,22 @@ const Sidebar = ({ sidebarActive, mobileMenu, mobileMenuControl }) => {
 
             <div className='sidebar-menu-area'>
                 <ul className='sidebar-menu' id='sidebar-menu'>
-                    {menuItems.map((item) => {
+                    {menuItems.map((item, index) => {
                         const isDropdown = item.children && item.children.length > 0;
+
+                        // Tambah style khusus setelah Dashboard
+                        const extraStyle = item.name === "Dashboard" ? { marginBottom: "12px" } : {};
 
                         if (isDropdown) {
                             return (
-                                <li key={item.id} className='dropdown'>
+                                <li key={item.id} className='dropdown' style={extraStyle}>
                                     <Link href={item.link}>
                                         <Icon icon={item.icon || 'heroicons:folder'} className='menu-icon' />
                                         <span>{item.name}</span>
                                     </Link>
                                     <ul className='sidebar-submenu'>
-                                        {/* No need to filter children; we map them directly after sorting. */}
                                         {item.children
-                                            .sort((a,b) => a.order_num - b.order_num)
+                                            .sort((a, b) => a.order_num - b.order_num)
                                             .map((child) => (
                                                 <li key={child.id}>
                                                     <Link
@@ -164,16 +168,16 @@ const Sidebar = ({ sidebarActive, mobileMenu, mobileMenuControl }) => {
                             );
                         }
 
-                        // Render a regular link
                         return (
-                            <li key={item.id}>
+                            <li key={item.id} style={extraStyle}>
                                 <Link href={item.link} className={pathname === item.link ? "active-page" : ""}>
                                     <Icon icon={item.icon || 'heroicons:document'} className='menu-icon' />
                                     <span>{item.name}</span>
                                 </Link>
                             </li>
-                        )
+                        );
                     })}
+
                 </ul>
             </div>
         </aside>
