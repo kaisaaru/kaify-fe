@@ -1,10 +1,14 @@
 "use client";
-import { useEffect, useRef, forwardRef, useImperativeHandle } from "react";
+import { useState, useEffect, useRef, forwardRef, useImperativeHandle } from "react";
 import useSupplier from "@/hook/useSupplier";
+import Modal from "@/components/Modal";
+import EditSupplier from "@/components/EditSupplier";
 
 const SupplierTable = forwardRef(({ librariesLoaded }, ref) => {
   const { getAllSuppliers, deleteSupplier } = useSupplier();
   const dataTableRef = useRef(null);
+  const [isEditOpen, setIsEditOpen] = useState(false);
+  const [selectedSupplierId, setSelectedSupplierId] = useState(null);
 
   // Expose refresh method to parent
   useImperativeHandle(ref, () => ({
@@ -91,6 +95,14 @@ const SupplierTable = forwardRef(({ librariesLoaded }, ref) => {
 
     dataTableRef.current = dataTable;
 
+    //Edit handler
+    tableElement.on("click", ".edit-supplier-btn", function (e) {
+      e.preventDefault();
+      const supplierId = $(this).data("supplier-id");
+      setSelectedSupplierId(supplierId);
+      setIsEditOpen(true);
+    });
+
     // Delete handler
     tableElement.on("click", ".delete-supplier-btn", async function (e) {
       e.preventDefault();
@@ -121,6 +133,7 @@ const SupplierTable = forwardRef(({ librariesLoaded }, ref) => {
         tableElement.DataTable().destroy();
       }
     };
+
   }, [librariesLoaded]);
 
 
@@ -142,6 +155,14 @@ const SupplierTable = forwardRef(({ librariesLoaded }, ref) => {
         </thead>
         <tbody>{/* Filled by DataTables */}</tbody>
       </table>
+
+      <Modal
+        isOpen={isEditOpen}
+        onClose={() => setIsEditOpen(false)}
+        title="Edit Supplier"
+      >
+        {selectedSupplierId && <EditSupplier supplierId={selectedSupplierId} />}
+      </Modal>
     </div>
   );
 });

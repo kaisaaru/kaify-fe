@@ -91,7 +91,8 @@ const useApiProxy = () => {
          });
     }, [request]);
 
-    return { data, error, loading, request, get, post, patch, del };
+    return { data,
+       error, loading, request, get, post, patch, del };
     
 };
 
