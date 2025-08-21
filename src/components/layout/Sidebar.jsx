@@ -28,7 +28,7 @@ const mockApiData = [
             { id: 2, name: 'Kategori', link: '/main/maintenance/kategori', order_num: 2, parent_id: 1 },
             { id: 3, name: 'Kelompok', link: '/main/maintenance/kelompok', order_num: 3, parent_id: 1 },
             { id: 4, name: 'Barang', link: '/main/maintenance/barang', order_num: 4, parent_id: 1 },
-            { id: 5, name: 'Relasi', link: '/main/maintenance/supplier', order_num: 5, parent_id: 1 },
+            { id: 5, name: 'Relasi', link: '/main/maintenance/contact', order_num: 5, parent_id: 1 },
         ]
     },
     {

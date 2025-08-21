@@ -1,3 +1,4 @@
+"use client";
 import useApiProxy from './useApiProxy';
 import Cookies from 'js-cookie';
 

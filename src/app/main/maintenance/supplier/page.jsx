@@ -45,9 +45,8 @@ const Supplier = () => {
                 color="primary"
                 variant="soft"
                 rightIcon="ei:plus"
-                onClick={() =>
-                  (window.location.href =
-                    "/main/maintenance/supplier/addSupplier")
+                onClick={
+                  () => supplierTableRef.current?.openAddModal()
                 }
               >
                 Add Supplier

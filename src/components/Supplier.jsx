@@ -3,21 +3,28 @@ import { useState, useEffect, useRef, forwardRef, useImperativeHandle } from "re
 import useSupplier from "@/hook/useSupplier";
 import Modal from "@/components/Modal";
 import EditSupplier from "@/components/EditSupplier";
+import AddSupplier from "@/components/AddSupplier";
 
 const SupplierTable = forwardRef(({ librariesLoaded }, ref) => {
   const { getAllSuppliers, deleteSupplier } = useSupplier();
   const dataTableRef = useRef(null);
   const [isEditOpen, setIsEditOpen] = useState(false);
+  const [isAddOpen, setIsAddOpen] = useState(false);
   const [selectedSupplierId, setSelectedSupplierId] = useState(null);
 
   // Expose refresh method to parent
+  // Expose methods to parent
   useImperativeHandle(ref, () => ({
     refresh() {
       if (dataTableRef.current) {
         dataTableRef.current.ajax.reload(null, false);
       }
     },
+    openAddModal() {
+      setIsAddOpen(true);
+    },
   }));
+
 
   useEffect(() => {
     if (!librariesLoaded) return;
@@ -67,12 +74,12 @@ const SupplierTable = forwardRef(({ librariesLoaded }, ref) => {
           orderable: false,
           render: (id) => `
           <a href="/main/maintenance/supplier/${id}" 
-             class="w-32-px h-32-px me-8 bg-primary-light text-primary-600 rounded-circle d-inline-flex align-items-center justify-content-center" 
+             class="w-32-px h-32-px me-8 bg-primary-light text-primary-600 rounded-circle d-inline-flex align-items-center justify-content-center add-supplier-btn" 
              title="View">
              <i class="iconify" data-icon="iconamoon:eye-light"></i>
           </a>
-          <a href="/main/maintenance/supplier/editSupplier/${id}" 
-             class="w-32-px h-32-px me-8 bg-success-focus text-success-main rounded-circle d-inline-flex align-items-center justify-content-center" 
+          <a href="#" data-contact-id="${id}
+             class="w-32-px h-32-px me-8 bg-success-focus text-success-main rounded-circle d-inline-flex align-items-center justify-content-center edit-supplier-btn" 
              title="Edit">
              <i class="iconify" data-icon="lucide:edit"></i>
           </a>
@@ -94,6 +101,15 @@ const SupplierTable = forwardRef(({ librariesLoaded }, ref) => {
     });
 
     dataTableRef.current = dataTable;
+
+    //Add handler
+    tableElement.on("click", ".add-supplier-btn", function (e) {
+      e.preventDefault();
+      const supplierId = $(this).data("supplier-id");
+      setSelectedSupplierId(supplierId);
+      setIsEditOpen(true);
+    });
+
 
     //Edit handler
     tableElement.on("click", ".edit-supplier-btn", function (e) {
@@ -155,6 +171,18 @@ const SupplierTable = forwardRef(({ librariesLoaded }, ref) => {
         </thead>
         <tbody>{/* Filled by DataTables */}</tbody>
       </table>
+
+      <Modal
+        isOpen={isAddOpen}
+        onClose={() => setIsAddOpen(false)}
+        title="Add Supplier"
+      >
+        <AddSupplier
+          onSuccess={() => ref.current?.refresh()}
+          onClose={() => setIsAddOpen(false)}
+        />
+      </Modal>
+
 
       <Modal
         isOpen={isEditOpen}
